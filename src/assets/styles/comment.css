@@ -1,0 +1,27 @@
+.container-comment{
+    /* border: 1px solid; */
+}
+.mime {
+    width: 3.5rem;
+    height: 3rem !important;
+    border-radius: 5px;
+}
+.comb{
+    background-color: #efecec;
+    border-radius: 20px;
+    /* border: 1px solid; */
+}
+.title_comment{
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+.comment{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.card-body{
+    height: 30rem !important;
+    overflow: auto;
+    border: 1px solid red;
+}
