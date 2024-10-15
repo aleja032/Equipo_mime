@@ -22,6 +22,8 @@ body {
   }
   
   .postcard-avatar {
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     margin-right: 10px;
   }

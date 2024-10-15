@@ -1,11 +1,8 @@
 import React from "react";
-import mime from '../assets/images/mime.webp';
-import bombom from "../assets/images/bombom.webp";
-import red from "../assets/images/red.webp";
-import green from "../assets/images/green.webp";
-import blue from "../assets/images/blue.webp";
-
-import "../assets/styles/comment.css";
+import mime from '../../assets/images/mime.webp';
+import red from "../../assets/images/red.webp";
+import green from "../../assets/images/green.webp";
+import blue from "../../assets/images/blue.webp";
 
 function Comment({ name, body }) {
     // Seleccionar aleatoriamente entre las dos imágenes

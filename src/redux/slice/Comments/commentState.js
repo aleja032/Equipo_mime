@@ -1,7 +1,7 @@
-import { loadLocalStorage } from "../../localStorage/localStorage";
+import { loadLocalStorage } from "../../../localStorage/localStorage";
 
 export const initialState = {
-    postId: '',
+    lastPostId: null,
     condition: 'no init',
     commentsLocalStorage: loadLocalStorage('comments'),
     comments: [], 

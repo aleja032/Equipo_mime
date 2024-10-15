@@ -1,4 +1,4 @@
-import { setPosts, setLoading } from './slice';
+import { setPosts, setLoading } from './postSlice';
 
 export const fetchPosts = () => async (dispatch) => {
   dispatch(setLoading(true));
