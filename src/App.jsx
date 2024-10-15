@@ -1,19 +1,29 @@
-import { useState } from 'react'
-import BarraAcciones from './components/BarraAcciones'
-import Union from './components/Union' //haciendo pruebas
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPosts } from './redux/slice/thunks';
+import PostCard from './components/PostCard/PostCard';
+import './App.css';
 
-import './App.css'
+const App = () => {
+  const dispatch = useDispatch();
+  const { posts, loading } = useSelector((state) => state.posts);
 
-function App() {
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
+  if (loading) {
+    return <p>Loading posts...</p>;
+  }
 
   return (
-      <div className=" d-flex align-items-center justify-content-center border p-5"> 
-        <BarraAcciones />
-        {/* <Union /> */}
-      </div>
-  )
-}
+    <div className="posts-container">
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
+    </div>
+  );
+};
 
-export default App
+export default App;
+
