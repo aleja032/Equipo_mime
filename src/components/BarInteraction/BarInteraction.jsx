@@ -16,12 +16,15 @@ function BarInteraction({ postId }) {
 
     const lastPostId = useSelector((state) => state.comment.lastPostId);
     const commentLocal = useSelector((state) => state.comment.commentsLocalStorage);
-    const comments = useSelector((state) => state.comment.comments);
+    // const comments = useSelector((state) => state.comment.comments);
     const dispatch = useDispatch();
 
     const handleClick = (postId) => {
         console.log(postId);
         dispatch(setLastPostId(postId));
+        if(commentLocal.some(item => item.postId === postId)){
+            console.log("comment local ya existe");
+        }
         dispatch(fetchComments(postId));
     };
     
@@ -29,7 +32,7 @@ function BarInteraction({ postId }) {
         setRandomLikes(Math.floor(Math.random() * 500));
         setRandomShares(Math.floor(Math.random() * 500));
 
-        dispatch(fetchComments(postId));
+        // dispatch(fetchComments(postId)); // fetch comments
     },[]);
     return( 
         <div className="d-flex flex-column custom">
@@ -46,7 +49,7 @@ function BarInteraction({ postId }) {
                     aria-expanded={postId} 
                     aria-controls={postId}>
                     <img src={chat} alt="Chat" className="me-1 icon" />
-                    {commentLocal.filter(item => item.postId === postId).length + comments.length } Comment
+                    {commentLocal.filter(item => item.postId === postId).length } Comment
                 </button>
                 <div className="col-4 text-center p-2 d-flex justify-content-center align-items-center custom-fz">
                     <img src={reply} alt="Reply" className="me-1 icon" />
@@ -54,7 +57,7 @@ function BarInteraction({ postId }) {
                 </div>
             </div>
             
-            <AllComments comments={comments} postId={postId} commentLocal={commentLocal} />
+            <AllComments postId={postId} commentLocal={commentLocal} />
         </div>
     );
 }

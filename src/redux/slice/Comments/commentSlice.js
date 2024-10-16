@@ -21,7 +21,9 @@ const commentSlice = createSlice({
         });
         builder.addCase(fetchComments.fulfilled, (state, action) => {
             state.condition = 'success';
-            state.comments = action.payload;
+            console.log(action.payload);
+            state.commentsLocalStorage = [...action.payload, ...state.commentsLocalStorage];
+            saveLocalStorage('comments', state.commentsLocalStorage);
         });
         builder.addCase(fetchComments.rejected, (state) => {
             state.condition = 'error'

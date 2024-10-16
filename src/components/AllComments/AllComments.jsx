@@ -9,7 +9,7 @@ import send  from "../../assets/icons/send.svg";
 import cat from "../../assets/images/cat.webp";
 import './allComments.css';
 
-function AllComments({comments, postId, commentLocal}){
+function AllComments({ postId, commentLocal}){
     const [newComment, setNewComment] = useState('');
     const dispatch = useDispatch();
 
@@ -19,6 +19,8 @@ function AllComments({comments, postId, commentLocal}){
     };
 
     const handleComment = (e) => {
+        e.preventDefault();  // Evitar que el formulario recargue la página
+    
         let id = getLastId() + 1; // Asignar un id basado en el último id y le sumo 1
         dispatch(setComment({
             id: id, 
@@ -28,6 +30,7 @@ function AllComments({comments, postId, commentLocal}){
         }));
         setNewComment('');
     };
+    
     // limpiar el storage para hacer pruebas
     const handleClear = () => {
         clearLocalStorage();
@@ -64,11 +67,11 @@ function AllComments({comments, postId, commentLocal}){
                                    item.postId === postId ? <Comment key={item.id} name={item.name} body={item.body} /> : null
                                 ))
                             } 
-                       
+{/*                        
                             {   comments.map((item) => (
                                     <Comment key={item.id} name={item.name} body={item.body} />
                                 ))
-                            }
+                            } */}
                     </div>
                 </div>
             </div>
