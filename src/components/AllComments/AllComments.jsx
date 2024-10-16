@@ -64,7 +64,7 @@ function AllComments({comments, postId, commentLocal}){
                                    item.postId === postId ? <Comment key={item.id} name={item.name} body={item.body} /> : null
                                 ))
                             } 
-                       
+                                                   
                             {   comments.map((item) => (
                                     <Comment key={item.id} name={item.name} body={item.body} />
                                 ))
