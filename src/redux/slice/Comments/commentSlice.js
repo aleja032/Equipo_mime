@@ -8,14 +8,11 @@ const commentSlice = createSlice({
     initialState,
     reducers: {
         setComment: (state, action) => {
-            // state.comments.unshift(action.payload);
             state.commentsLocalStorage.unshift(action.payload);
             saveLocalStorage('comments', state.commentsLocalStorage);
-            console.log(action.payload);
         },
         setLastPostId: (state, action) => {
             state.lastPostId = action.payload;
-            // console.log(state.lastPostId);
         },
     },
     extraReducers: (builder) => {

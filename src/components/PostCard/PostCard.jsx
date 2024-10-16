@@ -14,7 +14,7 @@ const PostCard = ({ post }) => {
         />
         <div>
           <strong>Thomas Taylor</strong>
-          <p className="postcard-location">📍</p>
+          <p className="postcard-location">📍Narnia</p>
         </div>
       </div>
       <h2>{post.title}</h2>

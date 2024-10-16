@@ -9,6 +9,7 @@ import './App.css';
 
 const App = () => {
   const dispatch = useDispatch();
+  
   const { posts, loading } = useSelector((state) => state.posts);
 
   useEffect(() => {

@@ -18,8 +18,9 @@
 }
 
 .card-body{
-    height: 30rem !important;
+    height: 28rem !important;
     overflow: auto;
+    border: none !important;
 }
 .custom-inputs{
     width: 60%;
@@ -39,12 +40,13 @@
     border: none;
     height: 70%;
     width: 20%;
-    background-color: #2d2350;
+    background-color: #2d2350; /* Color base */
     color: white; 
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
 }
 
 .custom-enviar:hover {
-    background-color: #46357d  ; /* Color de fondo al pasar el mouse */
-    transform: translateY(-2px); /* Ligera elevación al pasar el mouse */
+    background-color: #46357d; /* Color de fondo al hacer hover */
+    transform: translateY(-2px); /* Elevación al hacer hover */
+    box-shadow: 0 0 15px rgba(70, 53, 125, 0.5); /* Sombra con el color del fondo en hover y un poco de transparencia */
 }
