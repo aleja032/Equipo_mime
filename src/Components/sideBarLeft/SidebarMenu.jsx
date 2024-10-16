@@ -1,12 +1,11 @@
 import React from "react";
-import"bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import logo from "../../assets/images/post-Comments/mime.webp";
 
 function SidebarMenu(){
     return(               
         <div className="col-container">
               <a className="text-decoration-none text-black d-flex align-items-center p-3">
-                  <img src="/src/assets/perfil.png" alt="perfil"></img>
+                  <img src={logo} alt="perfil"></img>
                   <span className="ms-2 fs-4">Mime Girl</span>     
                   <i className="bi bi-check-all"></i>        
               </a>

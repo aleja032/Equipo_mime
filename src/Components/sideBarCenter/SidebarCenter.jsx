@@ -1,20 +1,29 @@
-import React from "react";
-import"bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPosts } from '../../redux/slice/posts/postThunk';
+import PostCard from '../postCard/PostCard';
 
 const SidebarCenter= () => {
+  const dispatch = useDispatch();
+  
+  const { posts, loading } = useSelector((state) => state.posts);
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
+  if (loading) {
+    return <p>Loading posts...</p>;
+  }
+
   return(  
     <div className="sideCenter">
-      <div className="col-center">          
-      <form className="d-flex">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
-
-       
-      </div>    
-      </div>
+        <div className="posts-container">
+          {posts.map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
+    </div>
     )
 }
     export default SidebarCenter;
