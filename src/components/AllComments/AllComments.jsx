@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { setComment } from "../../redux/slice/Comments/commentSlice";
+import { setComment } from "../../redux/slice/comments/commentSlice";
 import { clearLocalStorage } from '../../localStorage/localStorage';
 
 import Comment from '../Comment/Comment';
@@ -14,7 +14,7 @@ function AllComments({ postId, commentLocal}){
     const dispatch = useDispatch();
 
     const getLastId = () => {
-        const ids = commentLocal.length > 0 ? commentLocal.map(comment => comment.id) : comments.map(comment => comment.id);
+        const ids = commentLocal.length > 0 ? commentLocal.map(comment => comment.id) : 0;
         return Math.max(...ids); 
     };
 
@@ -22,6 +22,7 @@ function AllComments({ postId, commentLocal}){
         e.preventDefault();  // Evitar que el formulario recargue la página
     
         let id = getLastId() + 1; // Asignar un id basado en el último id y le sumo 1
+        console.log(id);
         dispatch(setComment({
             id: id, 
             postId: postId,
@@ -67,11 +68,6 @@ function AllComments({ postId, commentLocal}){
                                    item.postId === postId ? <Comment key={item.id} name={item.name} body={item.body} /> : null
                                 ))
                             } 
-{/*                        
-                            {   comments.map((item) => (
-                                    <Comment key={item.id} name={item.name} body={item.body} />
-                                ))
-                            } */}
                     </div>
                 </div>
             </div>
