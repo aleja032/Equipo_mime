@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPosts } from './redux/slice/Posts/postThunk';
-import PostCard from './components/PostCard/PostCard';
+import { fetchPosts } from './redux/slice/posts/postThunk';
+import PostCard from './components/postCard/PostCard';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';

@@ -5,7 +5,7 @@ import green from "../../assets/images/green.webp";
 import blue from "../../assets/images/blue.webp";
 
 function Comment({ name, body }) {
-    // Seleccionar aleatoriamente entre las dos imágenes
+    
     const images = [mime, red,green, blue];
     const randomImage = images[Math.floor(Math.random() * images.length)];
 

@@ -1,13 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { setComment } from "../../redux/slice/Comments/commentSlice";
-import { clearLocalStorage } from '../../localStorage/localStorage';
+import { setComment } from "../../redux/slice/comments/commentSlice";
 
-import Comment from '../Comment/Comment';
+import Comment from '../comment/Comment';
 import send  from "../../assets/icons/send.svg";
 import cat from "../../assets/images/cat.webp";
-import './allComments.css';
+import './AllComments.css';
 
 function AllComments({comments, postId, commentLocal}){
     const [newComment, setNewComment] = useState('');
@@ -19,7 +18,8 @@ function AllComments({comments, postId, commentLocal}){
     };
 
     const handleComment = (e) => {
-        let id = getLastId() + 1; // Asignar un id basado en el último id y le sumo 1
+        e.preventDefault();
+        let id = getLastId() + 1; // Asignar un id basado en el último id y le sumo 1 para evitar ids repetidos
         dispatch(setComment({
             id: id, 
             postId: postId,
@@ -28,19 +28,12 @@ function AllComments({comments, postId, commentLocal}){
         }));
         setNewComment('');
     };
-    // limpiar el storage para hacer pruebas
-    const handleClear = () => {
-        clearLocalStorage();
-        console.log("Local storage cleared!");
-    };
+ 
     return(
         <div className="row gx-0 custom-width">
             <div className="col-12">
                 <div className="collapse" id={postId}>
                     <div className="card card-body custom-scroll">
-                    <button onClick={handleClear}>
-                        Clear Local Storage
-                    </button>
                             <form className="d-flex align-items-end" onSubmit={handleComment}>
                                 <img src={cat} alt="bombom" className="mime me-2" />
                                     <div className="d-flex flex-column custom-inputs">

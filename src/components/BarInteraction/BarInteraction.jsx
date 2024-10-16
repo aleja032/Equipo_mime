@@ -1,14 +1,14 @@
 import React from "react";  
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setLastPostId } from '../../redux/slice/Comments/commentSlice';
-import { fetchComments } from '../../redux/slice/Comments/commentThunk';
+import { setLastPostId } from '../../redux/slice/comments/commentSlice';
+import { fetchComments } from '../../redux/slice/comments/commentThunk';
 
 import heart from '../../assets/icons/heart.svg';
 import chat from '../../assets/icons/chat.svg';
 import reply from '../../assets/icons/reply.svg';
 import AllComments from '../AllComments/AllComments.jsx';
-import './barInteraction.css';
+import './BarInteraction.css';
 
 function BarInteraction({ postId }) {
     const [randomLikes, setRandomLikes] = useState(0);
@@ -20,7 +20,6 @@ function BarInteraction({ postId }) {
     const dispatch = useDispatch();
 
     const handleClick = (postId) => {
-        console.log(postId);
         dispatch(setLastPostId(postId));
         dispatch(fetchComments(postId));
     };
