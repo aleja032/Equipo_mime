@@ -11,9 +11,6 @@ const commentSlice = createSlice({
             state.commentsLocalStorage.unshift(action.payload);
             saveLocalStorage('comments', state.commentsLocalStorage);
         },
-        setLastPostId: (state, action) => {
-            state.lastPostId = action.payload;
-        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchComments.pending, (state) => {
@@ -21,7 +18,11 @@ const commentSlice = createSlice({
         });
         builder.addCase(fetchComments.fulfilled, (state, action) => {
             state.condition = 'success';
-            state.comments = action.payload;
+                
+            if(state.commentsLocalStorage.every(item => item.postId !== action.payload[0].postId)){
+                 state.commentsLocalStorage = [...action.payload, ...state.commentsLocalStorage];
+                saveLocalStorage('comments', state.commentsLocalStorage);
+            }
         });
         builder.addCase(fetchComments.rejected, (state) => {
             state.condition = 'error'
