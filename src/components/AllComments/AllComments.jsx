@@ -19,7 +19,7 @@ function AllComments({ postId, commentLocal}){
     };
 
     const handleComment = (e) => {
-        e.preventDefault();  // Evitar que el formulario recargue la página
+        e.preventDefault();  
     
         let id = getLastId() + 1; // Asignar un id basado en el último id y le sumo 1
         console.log(id);
@@ -33,10 +33,10 @@ function AllComments({ postId, commentLocal}){
     };
     
     // limpiar el storage para hacer pruebas
-    const handleClear = () => {
-        clearLocalStorage();
-        console.log("Local storage cleared!");
-    };
+    // const handleClear = () => {
+    //     clearLocalStorage();
+    //     console.log("Local storage cleared!");
+    // };
     return(
         <div className="row gx-0 custom-width">
             <div className="col-12">
