@@ -1,18 +1,16 @@
+.custom-aux{
+  display: flex;
+}
 span{
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size:medium;
-  
 }
 
 /*sideMenu*/
 .col-container{
   background-color: rgb(235, 239, 239);
   width: 360px;
-  height: 750px;
-  margin-top: -30px;
-  margin-left: -27px;  
-  overflow: scroll;
   border-radius: 5px;
 }
 
@@ -52,14 +50,17 @@ span{
 /*SideCenter*/
 
 .sideCenter{
-  width: 1000px;
-  height: 800px;
-  flex-direction: row;
-  background-color:rgb(236, 241, 233);
-  align-items: center;
-  margin-top: -800px;
-  margin-left: 334px;
-  
+  width: 53%;
+  height: 99vh;
+  display: flex ;
+  justify-content: center;
+}
+
+.posts-container {
+  width: 70%;
+  height: 100%;
+  overflow: auto;
+
 }
 
 /*reponsive center*/
@@ -67,60 +68,37 @@ span{
 /*SidebarInf*/
 
 .sideInfo {
-  width: 360px;
-  height: 750px;
-  float: right;
-  margin-top: -750px;
-  background-color: rgb(242, 237, 237); 
-}
-
-.sideInfo::-webkit-scrollbar{
-  width: 7px;
-  background-color: whitesmoke;
-  overflow: scroll;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
 }
 
 .sideInfo img{
-    width: 200px;
-    height: 200px;
-    float:right;
-    padding-right: 20px;
-    margin-top: s0px;
-    margin-left: 30px;
+  width: 6rem;
+  height: 90px;
+  padding-right: 20px;
+  margin-left: 30px;
+  border-radius: 600px;
+
+}
+ul li{
+  list-style-type: none;
 }
 
-.user-item{
-  display: flex;                /* Alinea los elementos en una fila */
-  align-items: center;           /* Centra los elementos verticalmente */
-  margin-bottom: 40px;
-  border-bottom: 1px solid #b5b0b0;
-  padding-bottom: 10px;
-}
+@media (max-width: 375px) {
+  .posts-container {
+    grid-template-columns: 1fr;
+  } 
 
-.user-item span:hover {
-  transform: scale(1.2);        
-  color: #928807;              
-}
-
-.user-item button {
-  padding: 2px 7px;    
-  text-align: center;
-  margin: 5px;        /* Espacio interno en el botón */
-  background-color: #8d908e;
-  color: white;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-.user-item img{
-  width: 70px;
-  height: 50px;
-  border-radius: 30px; 
-  margin-right: 10px;
-  margin-top: -20px; }
-
-.user-list{
-  margin-top: 155px;
-}
+} 
+@media (max-width: 880px) {
+  .col-container{
+    display: none;
+  }
+  .sideCenter{
+    width: 100%;
+  }
+  .sideInfo{
+    display: none;
+  }
+} 

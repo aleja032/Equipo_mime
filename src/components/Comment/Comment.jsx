@@ -1,8 +1,8 @@
 import React from "react";
-import mime from '../../assets/images/mime.webp';
-import red from "../../assets/images/red.webp";
-import green from "../../assets/images/green.webp";
-import blue from "../../assets/images/blue.webp";
+import mime from '../../assets/images/post-Comments/mime.webp';
+import red from "../../assets/images/post-Comments/red.webp";
+import green from "../../assets/images/post-Comments/green.webp";
+import blue from "../../assets/images/post-Comments/blue.webp";
 
 function Comment({ name, body }) {
     

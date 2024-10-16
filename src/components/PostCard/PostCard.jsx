@@ -1,6 +1,6 @@
 import React from 'react';
 import BarInteraction from '../BarInteraction/BarInteraction';
-import cat from '../../assets/images/cat.webp';
+import cat from '../../assets/images/post-Comments/cat.webp';
 import './PostCard.css';
 
 const PostCard = ({ post }) => {

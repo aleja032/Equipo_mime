@@ -5,7 +5,7 @@ import { setComment } from "../../redux/slice/comments/commentSlice";
 
 import Comment from '../comment/Comment';
 import send  from "../../assets/icons/send.svg";
-import cat from "../../assets/images/cat.webp";
+import cat from "../../assets/images/post-Comments/cat.webp";
 import './AllComments.css';
 
 function AllComments({comments, postId, commentLocal}){
